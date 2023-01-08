@@ -39,16 +39,16 @@ export default {
 }
 .login-msg{
   color: gray;
-  padding-left: 3px;
+  padding-left: 0.3rem;
   text-align: left;
 }
 .naver-login{
   padding: 1.5rem 0;
   width: 100%;
-  margin-top: 11px;
+  margin-top: 1.1rem;
   background-color: #19ce60;
   border:1px solid #15c654;
-  font-size:13px;
+  font-size: 1.3rem;
   color: #fff;
   font-weight: 700;
   text-align: center;
@@ -62,7 +62,7 @@ export default {
   }
   .button {
     color:#404040;
-    letter-spacing: -.2px;
+    letter-spacing: -.02rem;
     border: none;
     background-color: transparent;
   }
