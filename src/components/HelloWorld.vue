@@ -19,8 +19,6 @@
         회원가입
       </button>
     </div>
-    
-
   </div>
 </template>
 
