@@ -34,6 +34,6 @@ export default {
   padding: 0.6rem 0;
   text-align: center;
   background-color: #6A6A6A;
-  color:  #E0E0E0;
+  color: #E0E0E0;
 }
 </style>
