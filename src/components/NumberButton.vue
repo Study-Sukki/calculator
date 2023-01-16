@@ -26,13 +26,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .number-button {
+  cursor: pointer;
   flex: 1;
   border: 1px solid #3C3C3C;
-  width:4rem;
+  width: 100%;
   font-size: 1.2rem;
-  padding:0.6rem 0;
-  text-align:center;
-  background-color:#6A6A6A;
-  color: #E0E0E0;
+  padding: 0.6rem 0;
+  text-align: center;
+  background-color: #6A6A6A;
+  color:  #E0E0E0;
 }
 </style>

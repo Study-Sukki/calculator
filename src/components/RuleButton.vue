@@ -35,14 +35,15 @@ export default {
 <style lang="scss" scoped>
 
 .rule-button {
+  cursor: pointer;
   flex: 1;
   border: 1px solid #3C3C3C;
-  width:4rem;
+  width: 100%;
   font-size: 1.2rem;
-  padding:0.6rem 0;
-  text-align:center;
-  background-color:#FD8E0E;
-  color: #E0E0E0;
+  padding: 0.6rem 0;
+  text-align: center;
+  background-color: #FD8E0E;
+  color:  #E0E0E0;
 }
 .complex {
   background-color: #4E4E4E;
