@@ -41,7 +41,7 @@
     <div class="keypad">
       <NumberButton number="0" class="zero"/>
       <NumberButton number="."/>
-      <RuleButton rule ="="/>
+      <RuleButton rule ="=" class="sum"/>
     </div>
   </div>
 </template>
@@ -80,9 +80,14 @@ export default {
     font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
   }
   .keypad{
+    border-radius: inherit;
     display: flex;
     .zero{
+      border-bottom-left-radius: inherit;
       flex: 2;
+    }
+    .sum{
+      border-bottom-right-radius: inherit;
     }
   }
 }
