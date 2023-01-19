@@ -15,9 +15,7 @@
       0
     </div>
     <div class="keypad">
-      <RuleButton rule="AC" isComplex />
-      <RuleButton rule="+/-" isComplex />
-      <RuleButton rule="%" isComplex />
+      <RuleButton rule="AC" isComplex class="AC"/>
       <RuleButton rule ="÷"/>
     </div>
     <div class="keypad">
@@ -82,6 +80,9 @@ export default {
   .keypad{
     border-radius: inherit;
     display: flex;
+    .AC{
+      flex: 3;
+    }
     .zero{
       border-bottom-left-radius: inherit;
       flex: 2;
