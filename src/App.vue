@@ -15,25 +15,25 @@
       {{ total }}
     </div>
     <div class="keypad">
-      <RuleButton rule="AC" isComplex class="AC"/>
+      <RuleButton rule="AC" isComplex class="AC" @click="clear"/>
       <RuleButton rule ="÷"/>
     </div>
     <div class="keypad">
-      <NumberButton number="7" @click="append"/>
-      <NumberButton number="8" @click="append"/>
-      <NumberButton number="9" @click="append"/>
+      <NumberButton number="7" @click="onNumberClicked"/>
+      <NumberButton number="8" @click="onNumberClicked"/>
+      <NumberButton number="9" @click="onNumberClicked"/>
       <RuleButton rule ="×"/>
     </div>
     <div class="keypad">
-      <NumberButton number="4" @click="append"/>
-      <NumberButton number="5" @click="append"/>
-      <NumberButton number="6" @click="append"/>
+      <NumberButton number="4" @click="onNumberClicked"/>
+      <NumberButton number="5" @click="onNumberClicked"/>
+      <NumberButton number="6" @click="onNumberClicked"/>
       <RuleButton rule ="-"/>
     </div>
     <div class="keypad">
-      <NumberButton number="1" @click="append"/>
-      <NumberButton number="2" @click="append"/>
-      <NumberButton number="3" @click="append"/>
+      <NumberButton number="1" @click="onNumberClicked"/>
+      <NumberButton number="2" @click="onNumberClicked"/>
+      <NumberButton number="3" @click="onNumberClicked"/>
       <RuleButton rule ="+"/>
     </div>
     <div class="keypad">
@@ -58,12 +58,15 @@ export default {
     }
   },
   methods: {
-    append (clickedNumber) {
+    onNumberClicked (clickedNumber) {
       if(this.total === '0'){
         this.total = clickedNumber;
       } else{
         this.total = this.total + clickedNumber;
       }
+    },
+    clear () {
+      this.total = '0'
     }
   },
 }
