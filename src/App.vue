@@ -12,28 +12,28 @@
       </div>
     </div>
     <div class="result">
-      0
+      {{ total }}
     </div>
     <div class="keypad">
       <RuleButton rule="AC" isComplex class="AC"/>
       <RuleButton rule ="÷"/>
     </div>
     <div class="keypad">
-      <NumberButton number="7"/>
-      <NumberButton number="8"/>
-      <NumberButton number="9"/>
+      <NumberButton number="7" @click="append"/>
+      <NumberButton number="8" @click="append"/>
+      <NumberButton number="9" @click="append"/>
       <RuleButton rule ="×"/>
     </div>
     <div class="keypad">
-      <NumberButton number="4"/>
-      <NumberButton number="5"/>
-      <NumberButton number="6"/>
+      <NumberButton number="4" @click="append"/>
+      <NumberButton number="5" @click="append"/>
+      <NumberButton number="6" @click="append"/>
       <RuleButton rule ="-"/>
     </div>
     <div class="keypad">
-      <NumberButton number="1"/>
-      <NumberButton number="2"/>
-      <NumberButton number="3"/>
+      <NumberButton number="1" @click="append"/>
+      <NumberButton number="2" @click="append"/>
+      <NumberButton number="3" @click="append"/>
       <RuleButton rule ="+"/>
     </div>
     <div class="keypad">
@@ -51,6 +51,20 @@ export default {
   components: {
     NumberButton,
     RuleButton,
+  },
+  data (){
+    return {
+      total:'0',
+    }
+  },
+  methods: {
+    append (clickedNumber) {
+      if(this.total === '0'){
+        this.total = clickedNumber;
+      } else{
+        this.total = this.total + clickedNumber;
+      }
+    }
   },
 }
 </script>

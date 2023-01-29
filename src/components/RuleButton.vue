@@ -23,12 +23,7 @@ export default {
   },
   data () {
     return {
-
-
     }
-  },
-  methods: function () {
-
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <button class="number-button">
+  <button @click="append" class="number-button">
     {{ number }}
   </button>
 </template>
@@ -10,18 +10,18 @@ export default {
   props: {
     number: {
       type: String,
-      required: false,
-      default: "test"
+      required: true
     }
   },
   data () {
     return {
-
     }
-  },
-  methods: function () {
-
-  },
+  }, 
+  methods : {
+    append () {
+      this.$emit('click', this.number)
+    }
+  } 
 };
 </script>
 <style lang="scss" scoped>
