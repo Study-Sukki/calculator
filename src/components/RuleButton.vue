@@ -1,5 +1,5 @@
 <template>
-  <button
+  <button @click="clear"
     class="rule-button"
     :class="{ 'complex': isComplex }"
   >
@@ -25,6 +25,11 @@ export default {
     return {
     }
   },
+  methods : {
+    clear () {
+      this.$emit('click', this.isComplex)
+    }
+  } 
 };
 </script>
 <style lang="scss" scoped>

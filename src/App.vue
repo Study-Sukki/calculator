@@ -15,7 +15,7 @@
       {{ total }}
     </div>
     <div class="keypad">
-      <RuleButton rule="AC" isComplex class="AC"/>
+      <RuleButton rule="AC" isComplex class="AC" @click="clear"/>
       <RuleButton rule ="÷"/>
     </div>
     <div class="keypad">
@@ -64,6 +64,9 @@ export default {
       } else{
         this.total = this.total + clickedNumber;
       }
+    },
+    clear () {
+      this.total = '0'
     }
   },
 }
