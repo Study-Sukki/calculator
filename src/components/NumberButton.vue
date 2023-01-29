@@ -1,5 +1,5 @@
 <template>
-  <button @click="append" class="number-button">
+  <button @click="click" class="number-button">
     {{ number }}
   </button>
 </template>
@@ -18,7 +18,7 @@ export default {
     }
   }, 
   methods : {
-    append () {
+    click () {
       this.$emit('click', this.number)
     }
   } 

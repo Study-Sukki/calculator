@@ -1,5 +1,5 @@
 <template>
-  <button @click="calculate"
+  <button @click="click"
     class="rule-button"
     :class="{ 'complex': isComplex }"
   >
@@ -26,7 +26,7 @@ export default {
     }
   },
   methods : {
-    calculate () {
+    click () {
       this.$emit('click', this.rule)
     }
   } 
