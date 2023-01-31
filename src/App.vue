@@ -106,7 +106,7 @@ export default {
       }
     },
     calculate () {
-      let result = this.total.replace(new RegExp('×', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
+      const result = this.total.replace(new RegExp('×', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
 
       this.total = parseFloat(eval(result).toFixed(9)).toString()
       this.isClickedAdded = false
