@@ -16,30 +16,30 @@
     </div>
     <div class="keypad">
       <RuleButton rule="AC" isComplex class="AC" @click="clear"/>
-      <RuleButton rule ="÷"/>
+      <RuleButton rule ="÷" @click="onRuleClicked"/>
     </div>
     <div class="keypad">
       <NumberButton number="7" @click="onNumberClicked"/>
       <NumberButton number="8" @click="onNumberClicked"/>
       <NumberButton number="9" @click="onNumberClicked"/>
-      <RuleButton rule ="×"/>
+      <RuleButton rule ="×" @click="onRuleClicked"/>
     </div>
     <div class="keypad">
       <NumberButton number="4" @click="onNumberClicked"/>
       <NumberButton number="5" @click="onNumberClicked"/>
       <NumberButton number="6" @click="onNumberClicked"/>
-      <RuleButton rule ="-"/>
+      <RuleButton rule ="-" @click="onRuleClicked"/>
     </div>
     <div class="keypad">
       <NumberButton number="1" @click="onNumberClicked"/>
       <NumberButton number="2" @click="onNumberClicked"/>
       <NumberButton number="3" @click="onNumberClicked"/>
-      <RuleButton rule ="+"/>
+      <RuleButton rule ="+" @click="onRuleClicked"/>
     </div>
     <div class="keypad">
-      <NumberButton number="0" class="zero"/>
-      <NumberButton number="."/>
-      <RuleButton rule ="=" class="sum"/>
+      <NumberButton number="0" class="zero" @click="onNumberClicked"/>
+      <NumberButton number="." @click="onNumberClicked"/>
+      <RuleButton rule ="=" class="sum" @click="calculate"/>
     </div>
   </div>
 </template>
@@ -52,23 +52,73 @@ export default {
     NumberButton,
     RuleButton,
   },
-  data (){
+  data () {
     return {
-      total:'0',
+      total: '0',
+      isClickedAdded: false,
+      isOperatorAdded: false,
+      isStarted: false
     }
   },
   methods: {
     onNumberClicked (clickedNumber) {
-      if(this.total === '0'){
+      if(this.total === '0') {
         this.total = clickedNumber;
-      } else{
+      } else {
         this.total = this.total + clickedNumber;
       }
     },
+    isOperator (clickedRule) {
+      return ['+', '-', '×', '÷'].indexOf(clickedRule) > -1
+    },
+    onRuleClicked (clickedRule) {
+      if (this.total === '0' && !this.isOperator(clickedRule)) {
+        if (clickedRule === '.') {
+          this.total += '' + clickedRule
+          this.isClickedAdded = true
+        } else {
+          this.total = '' + clickedRule
+        }
+
+        this.isStarted = true
+        return
+      }
+
+      if (!this.isOperator(clickedRule)) {
+        if (clickedRule === '.' && this.isClickedAdded) {
+          return
+        }
+
+        if (clickedRule === '.') {
+          this.isClickedAdded = true
+          this.isOperatorAdded = true
+        } else {
+          this.isOperatorAdded = false
+        }
+
+        this.total += '' + clickedRule
+      }
+
+      if (this.isOperator(clickedRule) && !this.isOperatorAdded) {
+        this.total += '' + clickedRule
+        this.isClickedAdded = false
+        this.isOperatorAdded = true
+      }
+    },
+    calculate () {
+      const result = this.total.replace(new RegExp('×', 'g'), '*').replace(new RegExp('÷', 'g'), '/')
+
+      this.total = parseFloat(eval(result).toFixed(9)).toString()
+      this.isClickedAdded = false
+      this.isOperatorAdded = false
+    },
     clear () {
       this.total = '0'
-    }
-  },
+      this.isClickedAdded = false
+      this.isOperatorAdded = false
+      this.isStarted = false
+    },
+  }
 }
 </script>
 
